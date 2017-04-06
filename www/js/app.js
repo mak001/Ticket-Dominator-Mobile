@@ -22,3 +22,10 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.controller('ListController', ['$scope', '$http', function($scope, $http) {
+	$http.get("http://localhost:55178/").success(function(data) {
+		console.log(data);
+		$scope.tickets = data;
+	});
+}]);

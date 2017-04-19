@@ -1,9 +1,8 @@
 <ion-list>
-	<ion-item ng-repeat="item in tickets">
+	<ion-item ng-repeat="item in tickets" class="item-thumbnail-left" href="#/tickets/details/{{item.id}}">
+		<img src="http://placehold.it/100x100">
 		<h2>{{item.Artist}}</h2>
-		<div>
-			<p>{{item.Venue}}</p>
-			<p>{{item.Price}}</p>
-		</div>
+		<h3>{{item.Venue}}</h3>
+		<p>${{item.Price | number:2}}</p>
 	</ion-item>
 </ion-list>

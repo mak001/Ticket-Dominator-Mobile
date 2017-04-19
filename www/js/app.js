@@ -7,20 +7,14 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 			url: '',
 			templateUrl: 'views/tickets/list.html',
 			controller: 'ListController'
+		})
+		.state('tickets/details', {
+			url: 'details/:id',
+			templateUrl: 'views/tickets/details.html',
+			controller: 'DetailsController'
 		});
 	
-	$urlRouterProvider.otherwise('tickets');
-	/*
-	$routeProvider.
-		when('/tickets', {
-			templateUrl: 'views/tickets/list.html',
-			controller: 'ListController'
-		}).
-		otherwise({
-			redirectTo: '/tickets'
-		});
-		
-		*/
+	$urlRouterProvider.otherwise('');
 });
 
 ticketDominatorApp.run(function($ionicPlatform) {

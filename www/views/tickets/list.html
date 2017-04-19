@@ -1,5 +1,7 @@
 <ion-list>
-	<ion-item ng-repeat="item in tickets" class="item-thumbnail-left" href="#/tickets/details/{{item.id}}">
+	<ion-item ng-repeat="item in tickets" class="item-thumbnail-left" ui-sref="tickets/details({
+		id: {{item.Id}}
+	})">
 		<img src="http://placehold.it/100x100">
 		<h2>{{item.Artist}}</h2>
 		<h3>{{item.Venue}}</h3>

@@ -17,8 +17,8 @@ ticketsController.controller('DetailsController', ['$scope', '$http', '$statePar
 	
 	getTicketList($scope, $http, function() {
 		$scope.ticket = ticketList.filter(function(ticket) {
-				return ticket.Id == $stateParams['id'];
-			})[0];
+			return ticket.Id == $stateParams['id'];
+		})[0];
 	});
 
 }]);
@@ -29,6 +29,7 @@ function getTicketList($scope, $http, callback) {
 		$http.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 	
 		$http.get("http://localhost:55178/").success(function(data) {
+			console.log(data);
 			ticketList = data;
 			lastUpdate = new Date().getTime();
 			

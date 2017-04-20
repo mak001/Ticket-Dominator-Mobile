@@ -6,7 +6,7 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 	
 	$stateProvider
 		.state('tickets', {
-			url: '',
+			url: '/',
 			views: {
 				'content': {
 					templateUrl: 'views/tickets/list.html',
@@ -18,7 +18,7 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 			}
 		})
 		.state('tickets/details', {
-			url: 'details/:id',
+			url: '/details/:id',
 			views: {
 				'content': {
 					templateUrl: 'views/tickets/details.html',
@@ -30,7 +30,7 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 			}
 		});
 	
-	$urlRouterProvider.otherwise('');
+	$urlRouterProvider.otherwise('/');
 });
 
 ticketDominatorApp.run(function($ionicPlatform) {

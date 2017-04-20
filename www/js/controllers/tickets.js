@@ -13,13 +13,23 @@ ticketsController.controller('ListController', ['$scope', '$http', function($sco
 }]);
 
 // ---- Details controller ----
-ticketsController.controller('DetailsController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+ticketsController.controller('DetailsController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams) {
+	
+	// checks if state id is valid (doesnt need to exist in list)
+	if ($stateParams['id'] == null || $stateParams['id'] == '' || isNaN($stateParams['id'])) {
+		$state.go('tickets');
+	}
 	
 	getTicketList($scope, $http, function() {
 		$scope.ticket = ticketList.filter(function(ticket) {
 			return ticket.Id == $stateParams['id'];
 		})[0];
 	});
+	
+	// checks if it returned anything
+	if ($scope.ticket == null || $scope.ticket == '') {
+		$state.go('tickets');
+	}
 
 }]);
 
@@ -29,7 +39,6 @@ function getTicketList($scope, $http, callback) {
 		$http.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 	
 		$http.get("http://localhost:55178/").success(function(data) {
-			console.log(data);
 			ticketList = data;
 			lastUpdate = new Date().getTime();
 			

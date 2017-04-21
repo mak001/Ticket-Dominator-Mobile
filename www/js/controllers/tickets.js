@@ -4,7 +4,7 @@ var ticketList = null;
 var lastUpdate = -1;
 
 // ---- List controller ----
-ticketsController.controller('ListController', ['$scope', '$http', function($scope, $http) {
+ticketsController.controller('TicketListController', ['$scope', '$http', function($scope, $http) {
 	
 	getTicketList($scope, $http, function() {
 		$scope.tickets = ticketList;

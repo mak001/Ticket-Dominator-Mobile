@@ -1,4 +1,4 @@
-var ticketDominatorApp = angular.module('ticketDominatorApp', ['ionic', 'ticketsController']);
+var ticketDominatorApp = angular.module('ticketDominatorApp', ['ionic', 'ticketsController', 'cartController']);
 
 var updateTime = 1800000;
 
@@ -10,7 +10,7 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 			views: {
 				'content': {
 					templateUrl: 'views/tickets/list.html',
-					controller: 'ListController'
+					controller: 'TicketListController'
 				},
 				'header': {
 					templateUrl: 'views/tickets/headers/list.html'
@@ -26,6 +26,18 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 				},
 				'header': {
 					templateUrl: 'views/tickets/headers/details.html'
+				}
+			}
+		})
+		.state('cart', {
+			url: '/cart',
+			views: {
+				'content': {
+					templateUrl: 'views/cart/cart.html',
+					controller: 'CartController'
+				},
+				'header': {
+					templateUrl: 'views/cart/headers/cart.html'
 				}
 			}
 		});

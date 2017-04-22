@@ -1,5 +1,6 @@
 var ticketDominatorApp = angular.module('ticketDominatorApp', ['ionic', 'ticketsController', 'cartController']);
 
+// around 30 mins - would be shorter in production
 var updateTime = 1800000;
 
 ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {

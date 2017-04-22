@@ -5,41 +5,24 @@ var updateTime = 1800000;
 ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 	
 	$stateProvider
+		
 		.state('tickets', {
 			url: '/',
-			views: {
-				'content': {
-					templateUrl: 'views/tickets/list.html',
-					controller: 'TicketListController'
-				},
-				'header': {
-					templateUrl: 'views/tickets/headers/list.html'
-				}
-			}
+			templateUrl: 'views/tickets/list.html',
+			controller: 'TicketListController'
+				
 		})
+		
 		.state('tickets/details', {
 			url: '/details/:id',
-			views: {
-				'content': {
-					templateUrl: 'views/tickets/details.html',
-					controller: 'DetailsController'
-				},
-				'header': {
-					templateUrl: 'views/tickets/headers/details.html'
-				}
-			}
+			templateUrl: 'views/tickets/details.html',
+			controller: 'DetailsController'
 		})
+		
 		.state('cart', {
 			url: '/cart',
-			views: {
-				'content': {
-					templateUrl: 'views/cart/cart.html',
-					controller: 'CartController'
-				},
-				'header': {
-					templateUrl: 'views/cart/headers/cart.html'
-				}
-			}
+			templateUrl: 'views/cart/cart.html',
+			controller: 'CartController'
 		});
 	
 	$urlRouterProvider.otherwise('/');

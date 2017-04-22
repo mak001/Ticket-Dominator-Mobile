@@ -1,37 +1,41 @@
-<div class="card">
-	<img src="http://placehold.it/350x150"/>
-	<div class="card-content">
-		<h1 class="card-title">
-			{{ticket.Artist}}
-		</h1>
-		
-		<div class="list">
-			<div class="item-group">
-				<div class="item item-divider" color="light">Venue</div>
-				<div class="item">{{ticket.Venue}}</div>
+<ion-view>
+	<ion-content>
+		<div class="card">
+			<img src="http://placehold.it/350x150"/>
+			<div class="card-content">
+				<h1 class="card-title">
+					{{ticket.Artist}}
+				</h1>
+				
+				<div class="list">
+					<div class="item-group">
+						<div class="item item-divider" color="light">Venue</div>
+						<div class="item">{{ticket.Venue}}</div>
+					</div>
+					
+					<div class="item-group">
+						<div class="item item-divider" color="light">Date</div>
+						<div class="item">{{ticket.Date.slice(6, -2) | date: 'yyyy-MM-dd'}}</div>
+					</div>
+					
+					<div class="item-group">
+						<div class="item item-divider" color="light">Time</div>
+						<div class="item">{{ticket.Date.slice(6, -2) | date: 'hh:mm a'}}</div>
+					</div>
+					
+					<div class="item-group">
+						<div class="item item-divider" color="light">Price</div>
+						<div class="item">{{ticket.Price | number:2}}</div>
+					</div>
+					
+					<div class="item-group">
+						<div class="item item-divider" color="light">Amount</div>
+						<div class="item">{{ticket.Amount}}</div>
+					</div>
+					
+				</div>
+				
 			</div>
-			
-			<div class="item-group">
-				<div class="item item-divider" color="light">Date</div>
-				<div class="item">{{ticket.Date.slice(6, -2) | date: 'yyyy-MM-dd'}}</div>
-			</div>
-			
-			<div class="item-group">
-				<div class="item item-divider" color="light">Time</div>
-				<div class="item">{{ticket.Date.slice(6, -2) | date: 'hh:mm a'}}</div>
-			</div>
-			
-			<div class="item-group">
-				<div class="item item-divider" color="light">Price</div>
-				<div class="item">{{ticket.Price | number:2}}</div>
-			</div>
-			
-			<div class="item-group">
-				<div class="item item-divider" color="light">Amount</div>
-				<div class="item">{{ticket.Amount}}</div>
-			</div>
-			
 		</div>
-		
-	</div>
-</div>
+	</ion-content>
+</ion-view>

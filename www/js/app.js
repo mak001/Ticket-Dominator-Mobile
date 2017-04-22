@@ -7,26 +7,43 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 	
 	$stateProvider
 		
-		.state('tickets', {
+		.state('tabs', {
 			url: '/',
-			templateUrl: 'views/tickets/list.html',
-			controller: 'TicketListController'
-				
+			abstract: true,
+			templateUrl: 'views/tabs.html'
 		})
 		
-		.state('tickets/details', {
-			url: '/details/:id',
-			templateUrl: 'views/tickets/details.html',
-			controller: 'DetailsController'
+		.state('tabs.tickets', {
+			url: 'tickets',
+			views: {
+				'tickets-tab': {
+					templateUrl: 'views/tickets/list.html',
+					controller: 'TicketListController'
+				}
+			}
 		})
 		
-		.state('cart', {
-			url: '/cart',
-			templateUrl: 'views/cart/cart.html',
-			controller: 'CartController'
+		.state('tabs.tickets/details', {
+			url: 'details/:id',
+			views: {
+				'tickets-tab': {
+					templateUrl: 'views/tickets/details.html',
+					controller: 'DetailsController'
+				}
+			}
+		})
+		
+		.state('tabs.cart', {
+			url: 'cart',
+			views: {
+				'cart-tab': {
+					templateUrl: 'views/cart/cart.html',
+					controller: 'CartController'
+				}
+			}
 		});
 	
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('tickets');
 });
 
 ticketDominatorApp.run(function($ionicPlatform) {

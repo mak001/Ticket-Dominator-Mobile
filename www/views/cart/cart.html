@@ -1,7 +1,12 @@
-<div ng-if="data.cart != null">
-	{{data.cart}}
-</div>
-<div ng-if="data.cart == null" class="text-center">
-	<h1>Nothing in cart</h1>
-	<button class="button button-large" color="light" ui-sref="tickets">See tickets</button>
-</div>
+<ion-view view-title="Cart">
+	<ion-content>
+		<div ng-if="data.cart != null">
+			{{data.cart}}
+		</div>
+		<div ng-if="data.cart == null" class="text-center">
+			<h1>Nothing in cart</h1>
+			<button class="button button-large" color="light" ui-sref="tabs.tickets">See tickets</button>
+		</div>
+	</ion-content>
+</ion-view>
+	

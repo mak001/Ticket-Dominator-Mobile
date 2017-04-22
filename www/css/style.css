@@ -13,3 +13,7 @@
 .card .card-title {
 	text-align: center;
 }
+
+input[type="search"] {
+	background-color: transparent;
+}

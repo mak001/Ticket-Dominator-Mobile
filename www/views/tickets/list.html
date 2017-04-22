@@ -1,7 +1,14 @@
 <ion-view view-title="Tickets">
-	<ion-content>
+	<ion-header-bar class="bar-subheader">
+		<label class="item-input-wrapper">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="search" ng-model="query" placeholder="Search">
+		</label>
+    </ion-header-bar>
+	
+	<ion-content class="has-subheader">
 		<ion-list>
-			<ion-item ng-repeat="item in tickets" class="item-thumbnail-left" ui-sref="tabs.tickets/details({
+			<ion-item ng-repeat="item in tickets | filter: query" class="item-thumbnail-left" ui-sref="tabs.tickets/details({
 				id: {{item.Id}}
 			})">
 				<img src="http://placehold.it/100x100">

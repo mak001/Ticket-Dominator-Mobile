@@ -24,7 +24,7 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 		})
 		
 		.state('tabs.tickets/details', {
-			url: 'details/:id',
+			url: 'tickets/details/:id',
 			views: {
 				'tickets-tab': {
 					templateUrl: 'views/tickets/details.html',

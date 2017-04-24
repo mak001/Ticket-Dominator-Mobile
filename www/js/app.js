@@ -43,7 +43,7 @@ ticketDominatorApp.config(function($stateProvider, $urlRouterProvider) {
 			}
 		});
 	
-	$urlRouterProvider.otherwise('tickets');
+	$urlRouterProvider.otherwise('/tickets');
 });
 
 ticketDominatorApp.run(function($ionicPlatform) {

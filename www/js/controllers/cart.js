@@ -17,6 +17,15 @@ cartController.controller('CartController', ['$scope', '$http', function($scope,
 	
 }]);
 
-function addToCart(id) {
-	console.log(id);
+function addToCart(id, $http) {
+	$http.post('http://localhost:55178/Cart/AddToCart', {
+		id: id,
+		mobile: true
+	},{
+		// can't do this on localhost
+		// withCredentials: true
+	}).success(function(data) {
+		console.log("added to " + id + " cart");
+		console.log(data);
+	});
 }

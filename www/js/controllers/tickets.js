@@ -13,11 +13,14 @@ ticketsController.controller('TicketListController', ['$scope', '$http', functio
 }]);
 
 // ---- Details controller ----
-ticketsController.controller('DetailsController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams) {
+ticketsController.controller('DetailsController', ['$scope', '$http', '$state', '$stateParams', '$ionicHistory', function($scope, $http, $state, $stateParams, $ionicHistory) {
 	
 	// checks if state id is valid (doesnt need to exist in list)
 	if ($stateParams['id'] == null || $stateParams['id'] == '' || isNaN($stateParams['id'])) {
-		$state.go('tickets');
+		$ionicHistory.nextViewOptions({
+			disableBack: true
+		});
+		$state.go('tabs.tickets');
 	}
 	
 	getTicketList($scope, $http, function() {
@@ -28,9 +31,15 @@ ticketsController.controller('DetailsController', ['$scope', '$http', '$state', 
 	
 	// checks if it returned anything
 	if ($scope.ticket == null || $scope.ticket == '') {
-		$state.go('tickets');
+		$ionicHistory.nextViewOptions({
+			disableBack: true
+		});
+		$state.go('tabs.tickets');
 	}
-
+	
+	$scope.addToCart = function(id) {
+		addToCart(id, $http);
+	};
 }]);
 
 function getTicketList($scope, $http, callback) {
